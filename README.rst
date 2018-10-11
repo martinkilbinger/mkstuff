@@ -1,7 +1,20 @@
 mkstuff
 =======
 
-Martin Kilbinger's library for random python stuff.
+Library for random scientific python modules and scripts.
+
+:Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_
+
+:Version: 1.0
+
+:Date: July 2018
+
+:Documentation: |link-to-docs|
+
+.. |link-to-docs| raw:: html
+
+  <a href="https://github.com/martinkilbinger/mkstuff/"
+  target="_blank">https://github.com/martinkilbinger/mkstuff/</a>
 
 
 Installation
@@ -9,18 +22,19 @@ Installation
 
 First, clone the ``mkstuff`` repository from GitHUB using the command
 
-        $ git clone https://github.com/martinkilbinger/mkstuff.git
+.. code-block:: sh
+
+        git clone https://github.com/martinkilbinger/mkstuff.git
 
 Next, run the ``setup.py`` script in the ``mkstuff`` directory
 
-        $ cd mkstuff
-        $ python setup.py install [OPTIONS]
+.. code-block:: sh
+        cd mkstuff
+        python setup.py install [OPTIONS]
 
 OPTIONS can for example specify installation to a specific directory with ``--prefix DIR``. Type
 
         python setup.py install --help
-
-for help.
 
 Content
 -------
@@ -32,6 +46,4 @@ Modules
 Executable scripts, in ``mkstuff/bin``
         * ``fits2ascii.py``
 
-
-Version 1.0
 
