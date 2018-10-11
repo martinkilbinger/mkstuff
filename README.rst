@@ -22,9 +22,13 @@ Installation
 
 First, clone the ``mkstuff`` repository from GitHUB using the command
 
-        $ git clone https://github.com/martinkilbinger/mkstuff.git
+.. code-block:: sh
+
+$ git clone https://github.com/martinkilbinger/mkstuff.git
 
 Next, run the ``setup.py`` script in the ``mkstuff`` directory
+
+.. code-block:: sh
 
         $ cd mkstuff
         $ python setup.py [OPTIONS]
@@ -39,6 +43,4 @@ Modules
 Executable scripts, in ``mkstuff/bin``
         * ``fits2ascii.py``
 
-
-Version 1.0
 
