@@ -29,6 +29,7 @@ First, clone the ``mkstuff`` repository from GitHUB using the command
 Next, run the ``setup.py`` script in the ``mkstuff`` directory
 
 .. code-block:: sh
+
         cd mkstuff
         python setup.py install [OPTIONS]
 
