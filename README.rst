@@ -1,7 +1,20 @@
 mkstuff
 =======
 
-Martin Kilbinger's library for random python stuff.
+Library for random scientific python modules and scripts.
+
+:Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_
+
+:Version: 1.0
+
+:Date: July 2018
+
+:Documentation: |link-to-docs|
+
+.. |link-to-docs| raw:: html
+
+  <a href="https://github.com/martinkilbinger/mkstuff/"
+  target="_blank">https://github.com/martinkilbinger/mkstuff/</a>
 
 
 Installation
