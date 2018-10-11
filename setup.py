@@ -27,8 +27,8 @@ setup(name             = __whoami__,
       classifiers      = [
                           'Programming Language :: Python',
                           'Natural Language :: English',
-                         ]
-      scripts          = ['fits2ascii.py']
+                         ],
+      scripts          = ['bin/fits2ascii.py'],
 )
 
 

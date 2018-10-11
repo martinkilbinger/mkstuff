@@ -14,7 +14,13 @@ First, clone the ``mkstuff`` repository from GitHUB using the command
 Next, run the ``setup.py`` script in the ``mkstuff`` directory
 
         $ cd mkstuff
-        $ python setup.py [OPTIONS]
+        $ python setup.py install [OPTIONS]
+
+OPTIONS can for example specify installation to a specific directory with ``--prefix DIR``. Type
+
+        python setup.py install --help
+
+for help.
 
 Content
 -------
