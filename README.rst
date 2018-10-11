@@ -35,6 +35,8 @@ Next, run the ``setup.py`` script in the ``mkstuff`` directory
 
 OPTIONS can for example specify installation to a specific directory with ``--prefix DIR``. Type
 
+.. code-block:: sh
+
         python setup.py install --help
 
 Content

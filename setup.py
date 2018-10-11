@@ -28,7 +28,7 @@ setup(name             = __whoami__,
                           'Programming Language :: Python',
                           'Natural Language :: English',
                          ],
-      scripts          = ['bin/fits2ascii.py'],
+      scripts          = ['mkstuff/bin/{}'.format(fn) for fn in ['fits2ascii.py']],
 )
 
 
