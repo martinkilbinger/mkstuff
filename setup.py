@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 
 #from setuptools import setup
 
@@ -12,20 +14,21 @@ def readme():
         return f.read()
 
 
-setup(name = __whoami__,
-      packages=[__whoami__],
-      version = __version__,
-      description = '{}\'s stuff'.format(__author__),
+setup(name             = __whoami__,
+      author           = __author__,
+      packages         = [__whoami__],
+      version          = __version__,
+      description      = '{}\'s stuff'.format(__author__),
       long_description = readme(),
-      author = __author__,
-      url = 'tbd',
-      author_email = __email__,
-      platforms=['posix', 'mac os'],
-      license="GNU GPLv3",
-      classifiers = [
-        'Programming Language :: Python',
-        'Natural Language :: English',
-                    ]
+      url              = 'https://github.com/martinkilbinger/mkstuff',
+      author_email     = __email__,
+      platforms        = ['posix', 'mac os'],
+      license          = "GNU GPLv3",
+      classifiers      = [
+                          'Programming Language :: Python',
+                          'Natural Language :: English',
+                         ]
+      scripts          = ['fits2ascii.py']
 )
 
 
