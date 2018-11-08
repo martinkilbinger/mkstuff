@@ -1,5 +1,3 @@
-# mkplot.py module
-
 # Martin Kilbinger 2011
 
 from mkstuff import *
