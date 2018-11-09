@@ -9,4 +9,5 @@ Martin Kilbinger's stuff
 from . import *
 from .info import __version__, __whoami__
 
+from .mkstuff import *
 
