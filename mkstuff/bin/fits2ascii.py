@@ -29,7 +29,7 @@ except ImportError:
     try:
         from astropy.io import fits
     except ImportError:
-        error("Could not import pyfits or astropy.io/fits library")
+        raise ImportError("Could not import pyfits or astropy.io/fits library")
 
 from optparse import OptionParser
 
