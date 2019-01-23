@@ -15,7 +15,7 @@ __author__  = 'Martin Kilbinger'
 __email__   = 'martin.kilbinger@cea.fr'
 
 # Python dependencies
-__python__depend = ['numpy', 'subprocess', 'scipy', 'textwrap']
+__python__depend__ = ['numpy', 'subprocess', 'scipy', 'textwrap']
 
 # Can we add optional packages? colorama
 
