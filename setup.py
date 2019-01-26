@@ -25,7 +25,7 @@ setup(name             = __whoami__,
                           'Programming Language :: Python',
                           'Natural Language :: English',
                          ],
-      scripts          = ['bin/{}'.format(fn) for fn in ['fits2ascii.py']],
+      scripts          = ['bin/{}'.format(fn) for fn in ['fits2ascii.py', 'ascii2fits.py']],
 )
 
 
