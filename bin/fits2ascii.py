@@ -11,6 +11,8 @@
 
 :Date: 2014
 
+:Version: 1.0 (2014)
+
 :Package: mkstuff
 
 """
@@ -22,14 +24,7 @@ from __future__ import print_function
 
 import sys
 
-try:
-    import pyfits as fits
-except ImportError:
-    pass
-    try:
-        from astropy.io import fits
-    except ImportError:
-        error("Could not import pyfits or astropy.io/fits library")
+from astropy.io import fits
 
 from optparse import OptionParser
 
@@ -42,7 +37,7 @@ def read_and_print_fits_file(input, output=None, verbose=False, n_row=-1, start=
     keys = ['OBJECT', 'TYPE', 'NRESAMPLE', 'UNITS', 'EXTNAME']
     
 
-    hdulist = fits.open(input)
+    hdulist = fits.open(input, mode='denywrite', memmap=True, do_not_scale_image_data=True)
     nhdu    = len(hdulist)
 
     for hdu in range(nhdu):

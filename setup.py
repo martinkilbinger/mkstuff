@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-#from setuptools import setup
-
 from distutils.core import setup
 
 exec(open('mkstuff/info.py').read())
@@ -28,7 +25,7 @@ setup(name             = __whoami__,
                           'Programming Language :: Python',
                           'Natural Language :: English',
                          ],
-      scripts          = ['mkstuff/bin/{}'.format(fn) for fn in ['fits2ascii.py']],
+      scripts          = ['bin/{}'.format(fn) for fn in ['fits2ascii.py', 'ascii2fits.py']],
 )
 
 
