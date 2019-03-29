@@ -789,6 +789,19 @@ def frexp10(x):
     return x / 10**exp, exp 
 
 
+def exp2string_nice(x):
+    """Return nicely formatted string in scientific notation.
+    """
+
+    m, e = frexp10(x)
+
+    if m == 1:
+        s = '10^{}'.format(e)
+    else:
+        s = '{:g}\\times10^{}'.format(m, e)
+
+    return s
+
 
 def draw_from_hist(bins, values, n):
     """Draws n random numbers from a histogram (bins, values).
@@ -953,7 +966,7 @@ def hyphen_range(s, first=None, last=None):
     return res
 
 
-def my_string_split(string, num=-1, verbose=False, stop=False):
+def my_string_split(string, num=-1, sep_force=None, verbose=False, stop=False):
     """Split a *string* into a list of strings. Choose as separator
         the first in the list [space, underscore] that occurs in the string.
         (Thus, if both occur, use space.)
@@ -964,9 +977,11 @@ def my_string_split(string, num=-1, verbose=False, stop=False):
         Input string
     num: int
         Required length of output list of strings, -1 if no requirement.
-    verbose: bool
+    sep_force: string, optional, default=None
+        if not None, use this separator instead of ' ' or '_'
+    verbose: bool, optional, default=False
         Verbose output
-    stop: bool
+    stop: bool, optional, default=False
         Stop programs with error if True, return None and continues otherwise
 
     Raises
@@ -983,24 +998,30 @@ def my_string_split(string, num=-1, verbose=False, stop=False):
     if string is None:
         return None
 
-    has_space      = string.find(' ')
-    has_underscore = string.find('_')
+    if sep_force:
+        has_sep = string.find(sep_force)
+        if has_sep == -1:
+            error('Separator \'{} \' not found in string \'{}\', cannot split'.format(string))
 
-    if has_space != -1:
-        # string has white-space
-        sep = ' '
     else:
-        if has_underscore != -1:
-        # string has no white-space but underscore
-            sep = '_'
+        has_space      = string.find(' ')
+        has_underscore = string.find('_')
+
+        if has_space != -1:
+            # string has white-space
+            sep = ' '
         else:
-            # string has neither, consists of one element
-            if num == -1 or num == 1:
-                # one-element string is ok
-                sep = None
-                pass
+            if has_underscore != -1:
+            # string has no white-space but underscore
+                sep = '_'
             else:
-                error('Neither \' \' nor \'_\' found in string \'{}\', cannot split'.format(string))
+                # string has neither, consists of one element
+                if num == -1 or num == 1:
+                    # one-element string is ok
+                    sep = None
+                    pass
+                else:
+                    error('Neither \' \' nor \'_\' found in string \'{}\', cannot split'.format(string))
  
     #res = string.split(sep=sep) # python v>=3?
     res = string.split(sep)
