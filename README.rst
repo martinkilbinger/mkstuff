@@ -5,7 +5,7 @@ Library for random scientific python modules and scripts.
 
 :Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_
 
-:Version: 1.0
+:Version: 1.1
 
 :Date: July 2018
 
@@ -42,11 +42,14 @@ OPTIONS can for example specify installation to a specific directory with ``--pr
 Content
 -------
 
-Modules
-        * ``mkstuff.py``
-        * ``mkplot.py``
+Modules, in `mkstuff/mkstuff`
+        * `mkstuff.py`
+          General library and helper functions
+        * `mkplot.py`
+          For plotting
+        * `athena.py`
+          To deal with `athena` (http://www.cosmostat.org/software/athena) input and output
 
-Executable scripts, in ``mkstuff/bin``
-        * ``fits2ascii.py``
-
-
+Executable scripts, in `mkstuff/bin`
+        * `fits2ascii.py`
+        * `ascii2fits.py`

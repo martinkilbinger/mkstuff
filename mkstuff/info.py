@@ -4,18 +4,18 @@
 
 Set the package information
 
-:Authors: Martin Kilbinger
+:Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
 
-:Date: 10/09/2018
+:Date: 01/04/2019
 """
 
-__version__ = '1.0'
+__version__ = '1.1'
 __whoami__  = 'mkstuff'
 __author__  = 'Martin Kilbinger'
 __email__   = 'martin.kilbinger@cea.fr'
 
 # Python dependencies
-__python__depend__ = ['numpy', 'subprocess', 'scipy', 'textwrap']
+__python__depend__ = ['numpy', 'subprocess', 'scipy', 'textwrap', 'astropy']
 
 # Can we add optional packages? colorama
 
