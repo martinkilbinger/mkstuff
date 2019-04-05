@@ -1,8 +1,12 @@
-# athena.py module
+"""INFO
 
-# Martin Kilbinger 2014
-# See http://cosmostat.org/athena
+:Name: athena.py
 
+:Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
+
+:Package: mkstuff
+
+"""
 
 # Compability with python2.x for x>6
 from __future__ import print_function
@@ -205,6 +209,116 @@ class xi_data:
 
         return d
 
+    def gather_component(self, typ, append=False):
+        """Return information on correlation function component.
+
+        Parameters
+        ----------
+
+        typ: string
+            'p', 'm', or 'x' for xi_p, xi_m, xi_x
+        append: bool, optional, default=False
+            if True, only append correlation function value, do not
+            include scale
+
+        Returns
+        -------
+        dat: 1- or 2-d array
+            array of data columns
+        """
+
+        dat = []
+        if not append:
+            dat.append(self.theta)
+
+        if typ == 'p':
+            corr = self.xip
+        elif typ == 'm':
+            corr = self.xim
+        elif typ =='x':
+            corr = self.xix
+        else:
+            raise ValueError('Invalid correlation type \'{}\''.format(typ))
+
+        dat.append(corr)
+
+        return dat
+
+
+    def write_component_ascii(self, output_path, typ):
+        """Write one of the correlation function components to an ascii file.
+
+        Parameters
+        ----------
+        output_path: string
+            output file path
+        typ: string
+            'p', 'm', or 'x' for xi_p, xi_m, xi_x
+
+        Returns
+        -------
+        None
+        """
+
+        dat = self.gather_component(typ, append=False)
+        f = open(output_path, 'w')
+        write_xi_data(f, dat)
+        f.close()
+
+
+class xi_data_tomo:
+    """Tomographic correlation function data
+    """
+    def __init__(self, theta, xip, xim, xix, file_format, force_reg=False, verbose=False):
+
+        self.nzcorr = len(xip)
+        self.xi_data_all = []
+
+        for nz in range(self.nzcorr):
+            xi = xi_data(theta, xip[nz], xim[nz], xix[nz], file_format, force_reg=force_reg, verbose=verbose)
+            self.xi_data_all.append(xi)
+
+
+    def get_xi(self, zc):
+        """Return correlation function for a given redshift combination
+
+        Parameters
+        ----------
+        zc: int
+            redshift correlation index
+        """
+
+        return self.xi_data_all[zc]
+
+
+    def write_component_ascii(self, output_path, typ):
+        """Write one of the correlation function components to an ascii file.
+
+        Parameters
+        ----------
+        output_path: string
+            output file path
+        typ: string
+            'p', 'm', or 'x' for xi_p, xi_m, xi_x
+        append: bool, optional, default=False
+            if True, only append correlation function value, do not
+            write scale or newline
+
+        Returns
+        -------
+        None
+        """
+
+        xi = self.get_xi(0)
+        dat = xi.gather_component(typ, append=False)
+
+        for zc in range(1, self.nzcorr):
+            xi = self.get_xi(zc)
+            xi_comp = xi.gather_component(typ, append=True)
+            dat.append(xi_comp[0])
+        f = open(output_path, 'w')
+        write_xi_data(f, dat)
+        f.close()
 
 
 class pkappa_data:
@@ -402,7 +516,7 @@ def get_unit(field, verbose=False, exit=False):
         mkstuff.error('No unit found, exiting')
 
     if verbose == True:
-        warning('No unit for angular scales found, assuming \'{0}\''.format(unit_default))
+        warnings.warn('No unit for angular scales found, assuming \'{0}\''.format(unit_default))
 
     return unit_default
 
@@ -651,7 +765,7 @@ def read_xi_ascii(fname, force_reg, verbose=False):
         fields = None
 
     # Required fields
-    check_fields(fields, athena.in_cols.xi_names, athena.in_cols.xi_indices, True, verbose)
+    check_fields(fields, in_cols.xi_names, in_cols.xi_indices, True, verbose)
 
     theta = xi[:, in_cols.scale.num]
     xip   = xi[:, in_cols.signal1['xi'].num]
@@ -920,6 +1034,17 @@ def read_pkappa_band_fits(fname, verbose=False, stop=False):
 
     return pb
 
+
+def write_xi_data(f, dat):
+
+    scale = rad_to_unit(dat[0], unit_default)
+    offset = 1
+    nzcorr = len(dat) - offset
+    for j in range(len(scale)):
+        f.write('{:15.8f}'.format(scale[j]))
+        for zc in range(offset, nzcorr + offset):
+            f.write(' {:15.8e}'.format(dat[zc][j]))
+        f.write('\n')
 
 
 ################

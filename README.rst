@@ -7,7 +7,7 @@ Library for random scientific python modules and scripts.
 
 :Version: 1.1
 
-:Date: July 2018
+:Date: April 2019
 
 :Documentation: |link-to-docs|
 

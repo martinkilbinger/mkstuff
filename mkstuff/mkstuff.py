@@ -1,7 +1,12 @@
-# mkstuff.py module
-#
-# Martin Kilbinger 2011-
-#
+"""INFO
+
+:Name: mkstuff.py
+
+:Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
+
+:Package: mkstuff
+
+"""
 
 
 # Compability with python2.x for x>6
