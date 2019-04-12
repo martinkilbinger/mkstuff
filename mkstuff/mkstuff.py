@@ -229,8 +229,8 @@ def ln_s(orig, new, verbose=False, force=False):
     None
     """
 
-    if os.path.isfile(orig):
-        if os.path.isfile(new):
+    if os.path.isfile(orig) or os.path.isdir(orig):
+        if os.path.isfile(new) or os.path.isdir(new):
             if force == False:
                 if verbose:
                     print('File \'{}\' exists, skipping link creation...'.format(new))
