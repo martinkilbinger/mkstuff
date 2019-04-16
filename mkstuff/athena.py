@@ -136,6 +136,19 @@ class in_cols():
 
 class xi_data:
     """Correlation function data
+    
+    Parameters
+    ----------
+    theta: array of double
+        angular scales [rad]
+    xip, xim, xix: array of double
+        Two-point shear correlation function components
+    file_format: string
+        file format
+    force_reg: bool, optional, default=False
+        if True, forces angular binning to be on regular grid
+    verbose: bool, optional, default=False
+        verbose output if True
     """
 
     def __init__(self, theta, xip, xim, xix, file_format, force_reg=False, verbose=False):
@@ -268,15 +281,63 @@ class xi_data:
 
 class xi_data_tomo:
     """Tomographic correlation function data
+
+    Parameters
+    ----------
+    xi: list of class xi_data
+        Two-point shear correlation function for different redshift combinations
+    verbose: bool, optional, default=False
+        verbose output if True
     """
-    def __init__(self, theta, xip, xim, xix, file_format, force_reg=False, verbose=False):
+
+    def __init__(self, xi, verbose=False):
+
+        # Number of redshift correlations
+        self.nzcorr = len(xi)
+
+        # Infer number of redshift bins, solve quadratic equation
+        dnzbin = 0.5*(np.sqrt(8*self.nzcorr + 1) - 1)
+        nzbin = int(dnzbin + 0.5)
+        if dnzbin != nzbin:
+            raise ValueError('Number of correlations nc={} has no integer solution nz for nc=nz(nz+1)/2'.format(self.nzcorr))
+
+        self.nzbin = nzbin
+
+        xi_all = []
+
+        for xi_c in xi:
+            xi_all.append(xi_c)
+
+        self.xi_all = xi_all
+
+
+    # TODO: check consistency between xis, e.g. theta.
+
+    @classmethod
+    def from_lists(self, theta, xip, xim, xix, file_format, force_reg=False, verbose=False):
+        """Create tomographic correlation function from list of components.
+           Probably not needed.
+
+        Parameters
+        ----------
+        theta: array of double
+            angular scales [rad]
+        xip, xim, xix: list of arrays of double
+            Two-point shear correlation function component for different redshift combinations
+        file_format: string
+            file format
+        force_reg: bool, optional, default=False
+            if True, forces angular binning to be on regular grid
+        verbose: bool, optional, default=False
+            verbose output if True
+        """
 
         self.nzcorr = len(xip)
-        self.xi_data_all = []
+        self.xi_all = []
 
         for nz in range(self.nzcorr):
             xi = xi_data(theta, xip[nz], xim[nz], xix[nz], file_format, force_reg=force_reg, verbose=verbose)
-            self.xi_data_all.append(xi)
+            self.xi_all.append(xi)
 
 
     def get_xi(self, zc):
@@ -288,7 +349,21 @@ class xi_data_tomo:
             redshift correlation index
         """
 
-        return self.xi_data_all[zc]
+        return self.xi_all[zc]
+
+
+    def get_theta(self):
+        """Return angular scale array
+        """
+
+        return self.xi_all[0].theta
+
+
+    def get_file_format(self):
+        """Return file format string
+        """
+
+        return self.xi_all[0].file_format
 
 
     def write_component_ascii(self, output_path, typ):
@@ -319,6 +394,22 @@ class xi_data_tomo:
         f = open(output_path, 'w')
         write_xi_data(f, dat)
         f.close()
+
+
+def get_iz_jz(nzbin, zcorr):
+    """Return redshift bins (iz, jz) corresponding to redshift correlation
+       #zcorr
+    """
+
+    icorr = 0
+    for iz in range(nzbin):
+        for jz in range(iz, nzbin):
+            if icorr == zcorr:
+                return iz, jz
+            icorr = icorr + 1
+
+    raise ValueError('No redshift bins found for zcorr={}'.format(zcorr))
+
 
 
 class pkappa_data:
