@@ -864,7 +864,7 @@ def get_bin_idx(values, x, which='lower', mode=None):
 
 def is_number(str, type=None):
     """Returns None if str is not a number. Returns type(str) otherwise.
-        type can be 'int(eger)' or 'float'
+       type can be 'int(eger)' or 'float'
     """
 
     try:
@@ -1000,8 +1000,15 @@ def my_string_split(string, num=-1, sep_force=None, verbose=False, stop=False):
 
     if sep_force:
         has_sep = string.find(sep_force)
-        if has_sep == -1:
-            error('Separator \'{} \' not found in string \'{}\', cannot split'.format(string))
+        if has_sep != -1:
+            sep = sep_force
+        else:
+            # string has neither, consists of one element
+            if num == -1 or num == 1:
+                # one-element string is ok
+                sep = None
+            else:
+                error('Separator \'{} \' not found in string \'{}\', cannot split'.format(string))
 
     else:
         has_space      = string.find(' ')
@@ -1015,11 +1022,8 @@ def my_string_split(string, num=-1, sep_force=None, verbose=False, stop=False):
             # string has no white-space but underscore
                 sep = '_'
             else:
-                # string has neither, consists of one element
                 if num == -1 or num == 1:
-                    # one-element string is ok
                     sep = None
-                    pass
                 else:
                     error('Neither \' \' nor \'_\' found in string \'{}\', cannot split'.format(string))
  

@@ -33,20 +33,22 @@ import mkstuff
 
 
 
-def read_ascii_file(name, no_header):
+def read_ascii_file(name, no_header, verbose=False):
     """Read ascii file and return data, header.
     """
-
-    print(no_header)
 
     if no_header is True:
         data = ascii.read(name, format='no_header', delimiter='\s')
     else:
-        print('reading with header')
         data = ascii.read(name)
-        print(data.keys())
+        if verbose:
+            print(data.keys())
 
     header = data.keys()
+
+    if verbose:
+        print('Header')
+        print(header)
 
     return data, header
 
@@ -82,25 +84,36 @@ def every(data, every):
 
 
 
-def write_fits_file(data, in_header, out_header, name):
+def write_fits_file(data, in_header, out_header, name, verbose=False):
     """Write fits file.
     """
 
     ncol = len(out_header)
 
+    if verbose:
+        print('Guessing column type info, from first-row entries:')
+
     cols  = []
     for i in range(ncol):
-        if mkstuff.is_number(data[in_header[i]][0], type='float'):
-            format = 'E'
-        elif mkstuff.is_number(data[in_header[i]][0], type='integer'):
-            format = 'I'
+
+        entry = data[in_header[i]][0]
+        if isinstance(entry, float):
+            form = 'E'
+        elif isinstance(entry, int):
+            form = 'I'
         else:
-            format = '100A'
-        new_col = fits.Column(name = out_header[i], format=format, array=data[in_header[i]])
+            form = '100A'
+
+        if verbose:
+            print('  col {}: {} -> \'{}\''.format(i, entry, form, end=''))
+
+        new_col = fits.Column(name = out_header[i], format=form, array=data[in_header[i]])
         cols.append(new_col)
 
     coldefs = fits.ColDefs(cols)
-    hdu     = fits.new_table(coldefs)
+    hdu     = fits.BinTableHDU.from_columns(coldefs)
+    if verbose:
+        print('Writing FITS file \'{}\''.format(name))
     hdu.writeto(name, clobber=True)
 
 
@@ -130,7 +143,7 @@ def main(argv=None):
     see_help = 'See option \'-h\' for help.'
 
     if options.input is None:
-        print('Input xi file not given (use option \'-i\'). ' + see_help, file=sys.stderr)
+        print('Input ascii file not given (use option \'-i\'). ' + see_help, file=sys.stderr)
         return
 
     if options.output is None:
@@ -138,7 +151,7 @@ def main(argv=None):
 
 
     if options.verbose == True:
-        print('Reading input fits file {}'.format(options.input))
+        print('Reading input ascii file \'{}\''.format(options.input))
     in_ascii, in_header = read_ascii_file(options.input, options.no_header)
 
     if options.every > 1:
@@ -151,7 +164,7 @@ def main(argv=None):
     if options.verbose == True:
         print('Writing ascii file {}'.format(options.output))
 
-    write_fits_file(in_ascii, in_header, out_header, options.output)
+    write_fits_file(in_ascii, in_header, out_header, options.output, verbose=options.verbose)
 
 
     return 0
