@@ -1,11 +1,16 @@
-# mkstuff.py module
-#
-# Martin Kilbinger 2011-
-#
+"""INFO
+
+:Name: mkstuff.py
+
+:Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
+
+:Package: mkstuff
+
+"""
 
 
 # Compability with python2.x for x>6
-from __future__ import print_function
+from __future__ import print_function, unicode_literals
 
 import re
 import numpy as np
@@ -224,8 +229,8 @@ def ln_s(orig, new, verbose=False, force=False):
     None
     """
 
-    if os.path.isfile(orig):
-        if os.path.isfile(new):
+    if os.path.isfile(orig) or os.path.isdir(orig):
+        if os.path.isfile(new) or os.path.isdir(new):
             if force == False:
                 if verbose:
                     print('File \'{}\' exists, skipping link creation...'.format(new))
@@ -449,8 +454,9 @@ def run_cmd_list(cmd_list, ncpu=1, run=True, verbose=True, stop=False, file_list
             files = None
         else:
             files = [file_list[j] for j in i]
-        sum_ex += run_cmd([cmd_list[j] for j in i], run=run, verbose=verbose, stop=stop,
+        res, out_list, err_list = run_cmd([cmd_list[j] for j in i], run=run, verbose=verbose, stop=stop,
                           file_list=files, parallel=True)
+        sum_ex = sum_ex + res
 
     return sum_ex
 
@@ -521,7 +527,7 @@ def run_cmd(cmd_list, run=True, verbose=True, stop=False, parallel=True, file_li
                         pipe = subprocess.Popen(cmds, stdout=subprocess.PIPE)
                         # See https://www.endpoint.com/blog/2015/01/28/getting-realtime-output-using-python
                         while True:
-                            output = pipe.stdout.readline()
+                            output = pipe.stdout.readline().decode('UTF-8')
                             if output == '' and pipe.poll() is not None:
                                 break
                             if output:

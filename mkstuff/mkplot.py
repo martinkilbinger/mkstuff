@@ -1,4 +1,12 @@
-# Martin Kilbinger 2011
+"""INFO
+
+:Name: mkplot.py
+
+:Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
+
+:Package: mkstuff
+
+"""
 
 from mkstuff import *
 import pylab as plt
