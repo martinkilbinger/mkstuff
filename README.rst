@@ -49,6 +49,8 @@ Modules, in `mkstuff/mkstuff`
           For plotting
         * `athena.py`
           To deal with `athena` (http://www.cosmostat.org/software/athena) input and output
+        * `populationWL.py`
+          Population weak lensing (lensing by foreground objects)
 
 Executable scripts, in `mkstuff/bin`
         * `fits2ascii.py`
