@@ -379,8 +379,8 @@ def stack(stack, n_cl=-1, fname='wgl_1.txt', subtype='wgl', verbose=False):
 
     mkstuff.mkdir_p('stack')
     os.rename('{}.mean'.format(in_name), 'stack/{}.mean'.format(in_name))
-    os.rename('{}.var'.format(in_name), 'stack/{}.var'.format(in_name))
-    os.rename('{}.meanvar'.format(in_name), 'stack/{}.meanvar'.format(in_name))
+    os.rename('{}.var'.format(in_name), 'stack/{}.rms'.format(in_name))
+    os.rename('{}.meanvar'.format(in_name), 'stack/{}.meanrms'.format(in_name))
 
     return n
 
