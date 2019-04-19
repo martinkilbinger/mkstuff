@@ -47,14 +47,15 @@ class cluster_data:
         Cluster declination
     z: float
         Cluster redshift
-    M: flost
+    M: float
         Cluster mass
     unit: string
         Unit of ra and dec, one of 'rad', 'deg', 'arcmin', 'arcsec'
-
+    scale: float, optional, default=1
+        scale parameter, e.g. radius
     """
 
-    def __init__(self, name, ra, dec, z, M, unit):
+    def __init__(self, name, ra, dec, z, M, unit, scale=1):
 
         self.n   = len(name)
         if self.n != len(ra) or self.n != len(dec) or self.n != len(z):
@@ -66,7 +67,7 @@ class cluster_data:
         self.z    = z
         self.M    = M
         self.unit = unit
-
+        self.scale = scale
 
 
     def print_min_max(self, x_min, x_max, string):
@@ -92,7 +93,6 @@ class cluster_data:
         print('  z = {:.2f} ... {:.2f}'.format(z_min, z_max))
 
 
-
     def get_index(self, name, verbose=False):
         """Return index of cluster with name <name> (-1 if not found).
         """
@@ -105,7 +105,6 @@ class cluster_data:
             idx = -1
     
         return idx
-
 
 
 class nofz:
@@ -177,13 +176,14 @@ def get_cluster_data(options):
     """
 
     clusters = get_cluster_data_narg(options.cluster_cat, options.cluster_name, options.cluster_ra, options.cluster_dec,
-            options.cluster_z, cluster_M=options.cluster_M, unit=options.unit, verbose=options.verbose)
+            options.cluster_z, cluster_M=options.cluster_M, unit=options.unit, cluster_scale=options.cluster_scale, verbose=options.verbose)
 
     return clusters
 
 
 
-def get_cluster_data_narg(cluster_cat, cluster_name, cluster_ra, cluster_dec, cluster_z, cluster_M=None, unit=None, verbose=False):
+def get_cluster_data_narg(cluster_cat, cluster_name, cluster_ra, cluster_dec, cluster_z, cluster_M=None,
+                          cluster_scale=None, unit=None, verbose=False):
     """Read cluster catalogue and return cluster info. See get_cluster_data (compact form).
     """
 
@@ -218,7 +218,12 @@ def get_cluster_data_narg(cluster_cat, cluster_name, cluster_ra, cluster_dec, cl
     if M is None:
         M = [-1] * len(dec)
 
-    clusters = cluster_data(name, ra, dec, z, M, unit)
+    if cluster_scale is not None:
+        scale = mkstuff.get_data_col(dat, cluster_scale, format=format, action=None)
+    else:
+        scale = [1] * len(dec)
+
+    clusters = cluster_data(name, ra, dec, z, M, unit, scale=scale)
 
     if verbose:
         #print('Extend of catalogue {}'.format(cluster_cat))
@@ -372,15 +377,15 @@ def stack(stack, n_cl=-1, fname='wgl_1.txt', subtype='wgl', verbose=False):
 
     cmd = 'mean_allcolumns.pl -k {} {} -r {}'.format(t_flag, w_flags, in_name)
 
-    n = mkstuff.run_cmd(cmd)
+    n, out_mgs, err_msg = mkstuff.run_cmd(cmd, verbose=verbose)
 
     if n == 0:
         mkstuff.error('No  file \'{}\' found for stacking, exiting populationWL.stack with error'.format(in_name))
 
     mkstuff.mkdir_p('stack')
     os.rename('{}.mean'.format(in_name), 'stack/{}.mean'.format(in_name))
-    os.rename('{}.var'.format(in_name), 'stack/{}.rms'.format(in_name))
-    os.rename('{}.meanvar'.format(in_name), 'stack/{}.meanrms'.format(in_name))
+    os.rename('{}.rms'.format(in_name), 'stack/{}.rms'.format(in_name))
+    os.rename('{}.meanrms'.format(in_name), 'stack/{}.meanrms'.format(in_name))
 
     return n
 
