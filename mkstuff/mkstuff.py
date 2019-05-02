@@ -510,7 +510,7 @@ def run_cmd(cmd_list, run=True, verbose=True, stop=False, parallel=True, file_li
         if run is True:
 
             # Check for existing file
-            if file_list is not None and os.path.isfile(file_list[i]):
+            if file_list is not None and os.path.exists(file_list[i]):
                 if verbose is True:
                     print_color('blue', 'Skipping command \'{}\', file \'{}\' exists'.format(cmd, file_list[i]))
             else:
