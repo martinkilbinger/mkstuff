@@ -21,7 +21,7 @@ __url__ = 'https://github.com/martinkilbinger/mkstuff'
 __description__ = 'Useful but random scientific python modules and scripts'
 
 # Dependencies
-__requires__ = ['numpy', 'subprocess', 'scipy', 'astropy']
+__requires__ = ['numpy', 'scipy', 'astropy']
 
 # Default package properties
 __license__ = 'MIT'
