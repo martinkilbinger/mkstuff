@@ -27,7 +27,6 @@ setup(
     install_requires = release_info['__requires__'],
     license = release_info['__license__'],
     description = release_info['__about__'],
-    description = '{}\'s stuff'.format(__author__),
     long_description = long_description,
     long_description_content_type = 'text/rst',
     setup_requires = release_info['__setup_requires__'],
