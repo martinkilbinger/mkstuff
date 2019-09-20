@@ -59,4 +59,3 @@ def add_float(x, y):
         raise TypeError('Inputs must be floats.')
 
     return x + y
-
