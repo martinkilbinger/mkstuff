@@ -15,7 +15,7 @@ class MathTestCase(TestCase):
 
     def setUp(self):
 
-        self.a = np.array([4, 2], [2, 4]])
+        self.a = np.array([[4, 2], [2, 4]])
 
     def tearDown(self):
 
