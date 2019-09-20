@@ -116,7 +116,6 @@ def get_data_col(data, col_name, action='exit', format='fits'):
 
     Parameters
     ----------
-
     data: table file struct
         Contains table information and data
     col_name: string
@@ -129,7 +128,7 @@ def get_data_col(data, col_name, action='exit', format='fits'):
     Returns
     -------
     column: array
-        Data array corresponding to column *col_name"
+        Data array corresponding to column *col_name*
     """
 
     found = True
@@ -363,6 +362,7 @@ def error(str, val=1, stop=True, verbose=True):
 
     Returns
     -------
+
     None
     """
 
@@ -996,7 +996,6 @@ def print_color(color, txt, file=sys.stdout, end='\n'):
     -------
     None
     """
-
 
     try:
         import colorama

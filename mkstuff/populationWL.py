@@ -6,9 +6,7 @@
 
 :Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
 
-:Description: Some useful classes and functions for
-population weak lensing (lensing by foreground objects
-such as galaxies, clusters, or voids)
+:Description: Some useful classes and functions for population weak lensing (lensing by foreground objects such as galaxies, clusters, or voids)
 
 :Package: mkstuff
 
@@ -437,5 +435,3 @@ def get_bg_cat_zmin(dir, lensing_cat_base, lensing_ext, z):
                 cat_lens = f
 
     return cat_lens
-
-

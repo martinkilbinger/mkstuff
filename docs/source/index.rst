@@ -6,31 +6,34 @@
 Documentation of the `mkstuff` package
 ======================================
 
+.. include:: install.rst
 
 Content
 -------
 
-Modules, in `mkstuff/mkstuff`
-        * `mkstuff.py`
-          General library and helper functions
-        * `mkplot.py`
-          For plotting
-        * `athena.py`
-          To deal with `athena` (http://www.cosmostat.org/software/athena) input and output
-        * `populationWL.py`
-          Population weak lensing (lensing by foreground objects)
+Overview
+
+* `mkstuff`
+   * `mkstuff.py`
+      General library and helper functions
+   * `mkplot.py`
+      For plotting
+   * `athena.py`
+      To deal with `athena` (http://www.cosmostat.org/software/athena) input and output
+   * `populationWL.py`
+      Population weak lensing (lensing by foreground objects)
 
 .. toctree::
    :numbered:
    :maxdepth: 3
-   :caption: General:
+   :caption: General
 
    examples
    mkstuff
 
 .. toctree::
    :maxdepth: 3
-   :caption: Scripts:
+   :caption: Executable scripts
 
    ascii2fits
    fits2ascii
