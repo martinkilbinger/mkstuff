@@ -5,7 +5,7 @@
 
 
 .. |Coveralls| image:: https://coveralls.io/repos/github/martinkilbinger/mkstuff/badge.svg?branch=master
-. _Coveralls: https://coveralls.io/github/martinkilbinger/mkstuff?branch=master
+.. _Coveralls: https://coveralls.io/github/martinkilbinger/mkstuff?branch=master
 
 
 
