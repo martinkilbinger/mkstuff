@@ -1,3 +1,26 @@
+|Travis|_ |Coveralls|_
+#|Python35|_ |Python36|_ |Python37|_ |PyPi|_
+
+.. |Travis| image:: https://api.travis-ci.org/martinkilbinger/mkstuff.svg?branch=master
+.. _Travis: https://travis-ci.org/martinkilbinger/mkstuff
+
+.. |Coveralls| image:: https://coveralls.io/github/martinkilbinger/mkstuff/badge.svg?branch=master&service=github
+.. _Coveralls: https://coveralls.io/github/martinkilbinger/mkstuff
+
+#.. |Python35| image:: https://img.shields.io/badge/python-3.5-blue.svg
+#.. _Python35: https://badge.fury.io/py/python-pySAP
+
+#.. |Python36| image:: https://img.shields.io/badge/python-3.6-blue.svg
+#.. _Python36: https://badge.fury.io/py/python-pySAP
+
+#.. |Python37| image:: https://img.shields.io/badge/python-3.7-blue.svg
+#.. _Python37: https://badge.fury.io/py/python-pySAP
+
+#.. |PyPi| image:: https://badge.fury.io/py/python-pySAP.svg
+#.. _PyPi: https://badge.fury.io/py/python-pySAP
+
+
+
 mkstuff
 =======
 
@@ -5,7 +28,7 @@ Library for random scientific python modules and scripts.
 
 :Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_
 
-:Version: 1.1
+:Version: 1.2.0
 
 :Date: April 2019
 
