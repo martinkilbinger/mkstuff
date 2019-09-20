@@ -4,4 +4,4 @@ mkstuff/__pycache__
 .eggs/
 dist/
 mkstuff.egg-info/
-
+.coverage
