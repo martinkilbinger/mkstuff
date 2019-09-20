@@ -1,8 +1,7 @@
-|Travis|_ |Coveralls|_
+|Travis|_
 
 .. |Travis| image:: https://api.travis-ci.org/martinkilbinger/mkstuff.svg?branch=master
 .. _Travis: https://travis-ci.org/martinkilbinger/mkstuff
-
 .. image:: https://coveralls.io/repos/github/martinkilbinger/mkstuff/badge.svg?branch=master
 :target: https://coveralls.io/github/martinkilbinger/mkstuff?branch=master
 
