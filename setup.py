@@ -31,10 +31,10 @@ setup(
     long_description_content_type = 'text/rst',
     setup_requires = release_info['__setup_requires__'],
     tests_require = release_info['__tests_require__'],
-    platforms = ['posix', 'mac os'],
-    classifiers= [
-                  'Programming Language :: Python',
-                  'Natural Language :: English',
-                 ],
-      scripts = ['bin/{}'.format(fn) for fn in ['fits2ascii.py', 'ascii2fits.py']],
+    #platforms = ['posix', 'mac os'],
+    #classifiers= [
+                  #'Programming Language :: Python',
+                  #'Natural Language :: English',
+                 #],
+    #scripts = ['bin/{}'.format(fn) for fn in ['fits2ascii.py', 'ascii2fits.py']],
 )

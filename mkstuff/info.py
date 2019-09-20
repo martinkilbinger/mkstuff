@@ -30,4 +30,3 @@ __about__ = ('{} \n\n Author: {} \n Email: {} \n Year: {} \n {} \n\n'
                        __description__))
 __setup_requires__ = ['pytest-runner', ]
 __tests_require__ = ['pytest', 'pytest-cov', 'pytest-pep8']
-
