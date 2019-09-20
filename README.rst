@@ -13,8 +13,8 @@ Library for random scientific python modules and scripts.
 
 .. |link-to-docs| raw:: html
 
-  <a href="https://github.com/martinkilbinger/mkstuff/"
-  target="_blank">https://github.com/martinkilbinger/mkstuff/</a>
+  <a href="https://martinkilbinger.github.io/mkstuff"
+  target="_blank">https://martinkilbinger.github.io/mkstuff</a>
 
 
 Installation
