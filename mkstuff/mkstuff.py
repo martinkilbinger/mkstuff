@@ -1015,6 +1015,3 @@ def print_color(color, txt, file=sys.stdout, end='\n'):
 
     except ImportError:
         print(txt, file=file, end=end)
-
-
-
