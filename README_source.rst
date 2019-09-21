@@ -19,7 +19,7 @@ The `mkstuff` package
 Content
 -------
 
-.. include:: overview.rst
+.. include:: docs/source/overview.rst
 
 
 Executable scripts, in `mkstuff/bin`

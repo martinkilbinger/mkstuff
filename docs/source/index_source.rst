@@ -17,6 +17,6 @@ Content
 Detailed documentation
 ----------------------
 
-.. include:: modules.rst
+.. include:: mkstuff.rst
 
 .. include:: scripts.rst
