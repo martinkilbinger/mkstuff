@@ -23,5 +23,5 @@ class MathTestCase(TestCase):
 
     def test_corr_coeff(self):
 
-        npt.assert_almost_equal(mkstuff.corr_coeff(self.a)[0, 1], 0.5,
+        npt.assert_almost_equal(corr_coeff(self.a)[0, 1], 0.5,
                          err_msg='Incorrect correlation coefficient')
