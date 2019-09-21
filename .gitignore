@@ -5,3 +5,8 @@ mkstuff/__pycache__
 dist/
 mkstuff.egg-info/
 .coverage
+docs/_build/
+mkstuff.rst
+mkstuff.example.rst
+mkstuff.tests.rst
+modules.rst
