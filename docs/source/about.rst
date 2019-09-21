@@ -1,5 +1,8 @@
 .. about
 
+About
+^^^^^
+
 Library for random scientific python modules and scripts.
 
 :Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_

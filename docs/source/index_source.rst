@@ -7,7 +7,6 @@ Documentation of the `mkstuff` package
 ======================================
 
 .. include:: about.rst
-
 .. include:: install.rst
 
 Content

@@ -1,5 +1,5 @@
 Installation
-------------
+^^^^^^^^^^^^
 
 First, clone the ``mkstuff`` repository from `github <https://github.com/>`_ using the command
 
