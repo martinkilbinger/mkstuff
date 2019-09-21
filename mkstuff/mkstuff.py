@@ -702,8 +702,38 @@ def mean(x):
 
 
 def corr_coeff(a):
-    Nx, Ny = a.shape
-    ra     = np.zeros(shape=a.shape) 
+    """Return correlation matrix (correlation coefficient)
+       of matrix a.
+
+    Parameters
+    ----------
+    a: matrix of float
+        input matrix
+
+    Returns
+    -------
+    ra: matrix of float
+        correlation matrix
+
+    Raises
+    ------
+    ValueError
+        if input is not matrix
+    ZeroDivisionError
+        if an input diagonal element is zero
+    """
+
+
+    try:
+        Nx, Ny = a.shape
+    except ValueError as err:
+        print('Input is not a 2D matrix')
+        raise
+
+    if any(np.diag(a) == 0):
+        raise ZeroDivisionError(f'At least one input diagonal element is zero')
+
+    ra = np.zeros(shape=a.shape) 
     for i in range(Nx):
         for j in range(Ny):
             ra[i,j] = a[i,j] / np.sqrt(a[i,i] * a[j,j])
