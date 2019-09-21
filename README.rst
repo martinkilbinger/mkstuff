@@ -12,36 +12,15 @@
 The `mkstuff` package
 =====================
 
-Library for random scientific python modules and scripts.
-
-:Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_
-
-:Version: 1.2.0
-
-:Date: April 2019
-
-:Documentation: |link-to-docs|
-
-.. |link-to-docs| raw:: html
-
-  <a href="https://martinkilbinger.github.io/mkstuff"
-  target="_blank">https://martinkilbinger.github.io/mkstuff</a>
-
+.. include:: docs/source/about.rst
 
 .. include:: docs/source/install.rst
 
 Content
 -------
 
-Modules, in `mkstuff/mkstuff`
-        * `mkstuff.py`
-          General library and helper functions
-        * `mkplot.py`
-          For plotting
-        * `athena.py`
-          To deal with `athena` (http://www.cosmostat.org/software/athena) input and output
-        * `populationWL.py`
-          Population weak lensing (lensing by foreground objects)
+.. include:: overview.rst
+
 
 Executable scripts, in `mkstuff/bin`
         * `fits2ascii.py`

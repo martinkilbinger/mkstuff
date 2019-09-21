@@ -1,10 +1,18 @@
 #!/usr/bin/env python
-#
-# Requires python v3.x, but is backward-compatible with 2.x for x>6
 
-# Martin Kilbinger 2014
-# ascii2fits.py
+"""
 
+:Name: ascii2fits.py
+
+:Description: Transforms an ascii (table) file into FITS.
+
+:Author: Martin Kilbinger
+
+:Date: 2014
+
+:Package: mkstuff
+
+"""
 
 # Compability with python2.x for x>6
 from __future__ import print_function

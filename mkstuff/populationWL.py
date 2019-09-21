@@ -1,4 +1,4 @@
-"""INFO
+"""
 
 :Name: populationWL.py
 
@@ -80,7 +80,7 @@ class cluster_data:
 
 
     def print_extend(self):
-        """Print extends in ra, dec, and z to the screen
+        """Prints extends in ra, dec, and z to the screen
         """
         ra_min, ra_max = min(self.ra), max(self.ra)
         dec_min, dec_max = min(self.dec), max(self.dec)
@@ -92,7 +92,7 @@ class cluster_data:
 
 
     def get_index(self, name, verbose=False):
-        """Return index of cluster with name <name> (-1 if not found).
+        """Returns index of cluster with name <name> (-1 if not found).
         """
 
         try:

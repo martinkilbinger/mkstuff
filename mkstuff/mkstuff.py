@@ -1,4 +1,4 @@
-"""INFO
+"""
 
 :Name: mkstuff.py
 
@@ -731,7 +731,7 @@ def corr_coeff(a):
         raise
 
     if any(np.diag(a) == 0):
-        raise ZeroDivisionError(f'At least one input diagonal element is zero')
+        raise ZeroDivisionError('At least one input diagonal element is zero')
 
     ra = np.zeros(shape=a.shape) 
     for i in range(Nx):
