@@ -12,7 +12,10 @@
 The `mkstuff` package
 =====================
 
-.. include:: docs/source/about.rst
+.. toctree::
+   :maxdepth: 3
+
+   docs/source/about.rst
 
 .. include:: docs/source/install.rst
 
