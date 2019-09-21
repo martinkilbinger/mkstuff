@@ -1,4 +1,4 @@
-"""INFO
+"""
 
 :Name: mkplot.py
 
