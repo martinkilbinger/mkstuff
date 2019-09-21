@@ -5,3 +5,4 @@ mkstuff/__pycache__
 dist/
 mkstuff.egg-info/
 .coverage
+docs/source/_build/
