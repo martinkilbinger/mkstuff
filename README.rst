@@ -69,6 +69,8 @@ Overview
       For plotting
    * `athena.py`
       To deal with `athena` (http://www.cosmostat.org/software/athena) input and output
+   * `nicaea.py`
+      To handle `nicaea` (http://www.cosmostat.org/software/nicaea) input and output
    * `populationWL.py`
       Population weak lensing (lensing by foreground objects)
 * `bin`

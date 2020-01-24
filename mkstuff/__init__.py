@@ -5,7 +5,6 @@
 
 """
 
-#__all__ = ['athena', 'mkplot', 'mkstuff', 'populationWL']  # List of submodules
 __all__ = []
 
 from . import *
