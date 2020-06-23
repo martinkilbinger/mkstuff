@@ -344,7 +344,6 @@ def log_command(argv, name=None, close_no_return=True):
         f.close()
 
 
-
 def error(str, val=1, stop=True, verbose=True):
     """Print message str and exits program with code val.
        See [ABC:]covest.py for 2.7 version.
