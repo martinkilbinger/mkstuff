@@ -21,9 +21,9 @@ Library for random scientific python modules and scripts.
 
 :Author: Martin Kilbinger `(martin.kilbinger@cea.fr) <martin.kilbinger@cea.fr>`_
 
-:Version: 1.2.0
+:Version: 1.2.1
 
-:Date: April 2019
+:Date: October 2020
 
 :Documentation: |link-to-docs|
 
