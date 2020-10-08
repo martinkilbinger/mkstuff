@@ -1,4 +1,4 @@
-"""INFO
+"""
 
 :Name: populationWL.py
 
@@ -6,9 +6,7 @@
 
 :Author: Martin Kilbinger, <martin.kilbinger@cea.fr>
 
-:Description: Some useful classes and functions for
-population weak lensing (lensing by foreground objects
-such as galaxies, clusters, or voids)
+:Description: Some useful classes and functions for population weak lensing (lensing by foreground objects such as galaxies, clusters, or voids)
 
 :Package: mkstuff
 
@@ -82,7 +80,7 @@ class cluster_data:
 
 
     def print_extend(self):
-        """Print extends in ra, dec, and z to the screen
+        """Prints extends in ra, dec, and z to the screen
         """
         ra_min, ra_max = min(self.ra), max(self.ra)
         dec_min, dec_max = min(self.dec), max(self.dec)
@@ -94,7 +92,7 @@ class cluster_data:
 
 
     def get_index(self, name, verbose=False):
-        """Return index of cluster with name <name> (-1 if not found).
+        """Returns index of cluster with name <name> (-1 if not found).
         """
 
         try:
@@ -437,5 +435,3 @@ def get_bg_cat_zmin(dir, lensing_cat_base, lensing_ext, z):
                 cat_lens = f
 
     return cat_lens
-
-

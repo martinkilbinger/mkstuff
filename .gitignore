@@ -1,3 +1,11 @@
 build
 mkstuff/__pycache__
 *.pyc
+.eggs/
+dist/
+mkstuff.egg-info/
+.coverage
+docs/_build/
+mkstuff.example.rst
+mkstuff.tests.rst
+modules.rst

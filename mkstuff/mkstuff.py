@@ -1,4 +1,4 @@
-"""INFO
+"""
 
 :Name: mkstuff.py
 
@@ -25,7 +25,6 @@ import sys
 from scipy import stats
 
 from optparse import IndentedHelpFormatter
-import textwrap
 
 
 r"""
@@ -117,7 +116,6 @@ def get_data_col(data, col_name, action='exit', format='fits'):
 
     Parameters
     ----------
-
     data: table file struct
         Contains table information and data
     col_name: string
@@ -130,7 +128,7 @@ def get_data_col(data, col_name, action='exit', format='fits'):
     Returns
     -------
     column: array
-        Data array corresponding to column *col_name"
+        Data array corresponding to column *col_name*
     """
 
     found = True
@@ -406,7 +404,6 @@ def log_command(argv, name=None, close_no_return=True):
         f.close()
 
 
-
 def error(str, val=1, stop=True, verbose=True):
     """Print message str and exits program with code val.
        See [ABC:]covest.py for 2.7 version.
@@ -424,6 +421,7 @@ def error(str, val=1, stop=True, verbose=True):
 
     Returns
     -------
+
     None
     """
 
@@ -733,69 +731,6 @@ def get_verbose_flag(verbose):
     return verbose_flag
 
 
-
-class IndentedHelpFormatterWithNL(IndentedHelpFormatter):
-  """Allows newline to have effect in option help.
-     From https://groups.google.com/forum/#!msg/comp.lang.python/bfbmtUGhW8I/sZkGryaO8gkJ
-     Usage: parser = OptionParser(usage=usage, formatter=mkstuff.IndentedHelpFormatterWithNL())
-  """
-  def format_description(self, description):
-    if not description: return ""
-    desc_width = self.width - self.current_indent
-    indent = " "*self.current_indent
-# the above is still the same
-    bits = description.split('\n')
-    formatted_bits = [
-      textwrap.fill(bit,
-        desc_width,
-        initial_indent=indent,
-        subsequent_indent=indent)
-      for bit in bits]
-    result = "\n".join(formatted_bits) + "\n"
-    return result
-
-  def format_option(self, option):
-    # The help for each option consists of two parts:
-    #   * the opt strings and metavars
-    #   eg. ("-x", or "-fFILENAME, --file=FILENAME")
-    #   * the user-supplied help string
-    #   eg. ("turn on expert mode", "read data from FILENAME")
-    #
-    # If possible, we write both of these on the same line:
-    #   -x    turn on expert mode
-    #
-    # But if the opt string list is too long, we put the help
-    # string on a second line, indented to the same column it would
-    # start in if it fit on the first line.
-    #   -fFILENAME, --file=FILENAME
-    #       read data from FILENAME
-    result = []
-    opts = self.option_strings[option]
-    opt_width = self.help_position - self.current_indent - 2
-    if len(opts) > opt_width:
-      opts = "%*s%s\n" % (self.current_indent, "", opts)
-      indent_first = self.help_position
-    else: # start help on same line as opts
-      opts = "%*s%-*s  " % (self.current_indent, "", opt_width, opts)
-      indent_first = 0
-    result.append(opts)
-    if option.help:
-      help_text = self.expand_default(option)
-# Everything is the same up through here
-      help_lines = []
-      for para in help_text.split("\n"):
-        help_lines.extend(textwrap.wrap(para, self.help_width))
-# Everything is the same after here
-      result.append("%*s%s\n" % (
-        indent_first, "", help_lines[0]))
-      result.extend(["%*s%s\n" % (self.help_position, "", line)
-        for line in help_lines[1:]])
-    elif opts[-1] != "\n":
-      result.append("\n")
-    return "".join(result)
-
-
-
 ############
 ### Maths ##
 ############
@@ -826,8 +761,38 @@ def mean(x):
 
 
 def corr_coeff(a):
-    Nx, Ny = a.shape
-    ra     = np.zeros(shape=a.shape) 
+    """Return correlation matrix (correlation coefficient)
+       of matrix a.
+
+    Parameters
+    ----------
+    a: matrix of float
+        input matrix
+
+    Returns
+    -------
+    ra: matrix of float
+        correlation matrix
+
+    Raises
+    ------
+    ValueError
+        if input is not matrix
+    ZeroDivisionError
+        if an input diagonal element is zero
+    """
+
+
+    try:
+        Nx, Ny = a.shape
+    except ValueError as err:
+        print('Input is not a 2D matrix')
+        raise
+
+    if any(np.diag(a) == 0):
+        raise ZeroDivisionError('At least one input diagonal element is zero')
+
+    ra = np.zeros(shape=a.shape) 
     for i in range(Nx):
         for j in range(Ny):
             ra[i,j] = a[i,j] / np.sqrt(a[i,i] * a[j,j])
@@ -1121,7 +1086,6 @@ def print_color(color, txt, file=sys.stdout, end='\n'):
     None
     """
 
-
     try:
         import colorama
         colors = {'red'    : colorama.Fore.RED,
@@ -1140,6 +1104,4 @@ def print_color(color, txt, file=sys.stdout, end='\n'):
 
     except ImportError:
         print(txt, file=file, end=end)
-
-
 
