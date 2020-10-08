@@ -1,0 +1,19 @@
+mkstuff.tests package
+=====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   mkstuff.tests.test_example
+   mkstuff.tests.test_mkstuff
+
+Module contents
+---------------
+
+.. automodule:: mkstuff.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+mkstuff.mkplot module
+=====================
+
+.. automodule:: mkstuff.mkplot
+   :members:
+   :undoc-members:
+   :show-inheritance:

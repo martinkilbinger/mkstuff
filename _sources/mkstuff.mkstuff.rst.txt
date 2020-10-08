@@ -1,0 +1,7 @@
+mkstuff.mkstuff module
+======================
+
+.. automodule:: mkstuff.mkstuff
+   :members:
+   :undoc-members:
+   :show-inheritance:

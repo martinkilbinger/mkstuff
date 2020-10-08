@@ -1,0 +1,32 @@
+mkstuff package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   mkstuff.example
+   mkstuff.tests
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   mkstuff.athena
+   mkstuff.info
+   mkstuff.mkplot
+   mkstuff.mkstuff
+   mkstuff.nicaea
+   mkstuff.populationWL
+
+Module contents
+---------------
+
+.. automodule:: mkstuff
+   :members:
+   :undoc-members:
+   :show-inheritance:

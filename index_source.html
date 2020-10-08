@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation of the mkstuff package &#8212; mkstuff 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">mkstuff 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Documentation of the <cite>mkstuff</cite> package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-of-the-mkstuff-package">
+<h1>Documentation of the <cite>mkstuff</cite> package<a class="headerlink" href="#documentation-of-the-mkstuff-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>Library for random scientific python modules and scripts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Martin Kilbinger <a class="reference external" href="mailto:martin&#46;kilbinger&#37;&#52;&#48;cea&#46;fr">(martin<span>&#46;</span>kilbinger<span>&#64;</span>cea<span>&#46;</span>fr)</a></p>
+</dd>
+<dt class="field-even">Version</dt>
+<dd class="field-even"><p>1.2.0</p>
+</dd>
+<dt class="field-odd">Date</dt>
+<dd class="field-odd"><p>April 2019</p>
+</dd>
+<dt class="field-even">Documentation</dt>
+<dd class="field-even"><p><a href="https://martinkilbinger.github.io/mkstuff"
+target="_blank">https://martinkilbinger.github.io/mkstuff</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>First, clone the <code class="docutils literal notranslate"><span class="pre">mkstuff</span></code> repository from <a class="reference external" href="https://github.com/">github</a> using the command</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/martinkilbinger/mkstuff.git
+</pre></div>
+</div>
+<p>Next, run the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script in the <code class="docutils literal notranslate"><span class="pre">mkstuff</span></code> directory</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mkstuff
+python setup.py install <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p>OPTIONS can for example specify installation to a specific directory with <code class="docutils literal notranslate"><span class="pre">--prefix</span> <span class="pre">DIR</span></code>. Type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python setup.py install --help
+</pre></div>
+</div>
+<div class="section" id="content">
+<h3>Content<a class="headerlink" href="#content" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>mkstuff</cite></dt><dd><ul>
+<li><dl class="simple">
+<dt><cite>mkstuff.py</cite></dt><dd><p>General library and helper functions</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>mkplot.py</cite></dt><dd><p>For plotting</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>athena.py</cite></dt><dd><p>To deal with <cite>athena</cite> (<a class="reference external" href="http://www.cosmostat.org/software/athena">http://www.cosmostat.org/software/athena</a>) input and output</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>populationWL.py</cite></dt><dd><p>Population weak lensing (lensing by foreground objects)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>bin</cite></dt><dd><p>Executable scripts</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="detailed-documentation">
+<h3>Detailed documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="section" id="mkstuff-package">
+<h1>mkstuff package<a class="headerlink" href="#mkstuff-package" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.example.html">mkstuff.example package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mkstuff.example.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mkstuff.example.hello.html">mkstuff.example.hello module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mkstuff.example.math.html">mkstuff.example.math module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mkstuff.example.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.tests.html">mkstuff.tests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mkstuff.tests.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mkstuff.tests.test_example.html">mkstuff.tests.test_example module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mkstuff.tests.test_mkstuff.html">mkstuff.tests.test_mkstuff module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mkstuff.tests.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.athena.html">mkstuff.athena module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.info.html">mkstuff.info module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.mkplot.html">mkstuff.mkplot module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.mkstuff.html">mkstuff.mkstuff module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.nicaea.html">mkstuff.nicaea module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.populationWL.html">mkstuff.populationWL module</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.example.html">mkstuff.example package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mkstuff.tests.html">mkstuff.tests package</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index_source.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">mkstuff 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Documentation of the <cite>mkstuff</cite> package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Martin Kilbinger.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

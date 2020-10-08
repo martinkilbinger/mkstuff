@@ -1,0 +1,7 @@
+mkstuff.nicaea module
+=====================
+
+.. automodule:: mkstuff.nicaea
+   :members:
+   :undoc-members:
+   :show-inheritance:

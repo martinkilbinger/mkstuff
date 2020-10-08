@@ -1,0 +1,7 @@
+mkstuff.tests.test\_mkstuff module
+==================================
+
+.. automodule:: mkstuff.tests.test_mkstuff
+   :members:
+   :undoc-members:
+   :show-inheritance:

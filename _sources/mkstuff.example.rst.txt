@@ -1,0 +1,19 @@
+mkstuff.example package
+=======================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   mkstuff.example.hello
+   mkstuff.example.math
+
+Module contents
+---------------
+
+.. automodule:: mkstuff.example
+   :members:
+   :undoc-members:
+   :show-inheritance:

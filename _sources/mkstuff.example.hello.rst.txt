@@ -1,0 +1,7 @@
+mkstuff.example.hello module
+============================
+
+.. automodule:: mkstuff.example.hello
+   :members:
+   :undoc-members:
+   :show-inheritance:

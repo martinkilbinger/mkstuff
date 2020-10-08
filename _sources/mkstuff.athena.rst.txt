@@ -1,0 +1,7 @@
+mkstuff.athena module
+=====================
+
+.. automodule:: mkstuff.athena
+   :members:
+   :undoc-members:
+   :show-inheritance:

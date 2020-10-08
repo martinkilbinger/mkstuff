@@ -1,0 +1,7 @@
+mkstuff.example.math module
+===========================
+
+.. automodule:: mkstuff.example.math
+   :members:
+   :undoc-members:
+   :show-inheritance:

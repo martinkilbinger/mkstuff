@@ -1,0 +1,7 @@
+mkstuff.info module
+===================
+
+.. automodule:: mkstuff.info
+   :members:
+   :undoc-members:
+   :show-inheritance:
