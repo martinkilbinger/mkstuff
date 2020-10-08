@@ -661,7 +661,7 @@ def get_athena_path(version='C'):
 # Writes 'athena' config file to path
 def write_config_tree(path='config_tree', galcat1=None, galcat2=None, sformat='standard', ncol=None, col_names=None,
 	        	      wcorr=1, scoord_input='arcmin', scoord_output=None, thmin=0.05, thmax=120, nth=20,
-                      bintype='LOG', radec=0, oath=0.03, serror=None, nresample='0 0'):
+                      bintype='LOG', radec=0, oath=0.03, serror=None, nresample='0 0', sep='='):
 
     if galcat2 is None:
         galcat2 = '-'
@@ -678,25 +678,25 @@ def write_config_tree(path='config_tree', galcat1=None, galcat2=None, sformat='s
 
     conf = open(path, 'w')
 
-    print('GALCAT1        = ' + galcat1, file=conf)
-    print('GALCAT2        = ' + galcat2, file=conf)
-    print('WCORR          = ' + str(wcorr), file=conf)
+    print('GALCAT1        {} {}'.format(sep, galcat1), file=conf)
+    print('GALCAT2        {} {}'.format(sep, galcat2), file=conf)
+    print('WCORR          {} {}'.format(sep, str(wcorr)), file=conf)
     if wcorr == 2:
-        print('SWCORR_SUBTYPE  = nn_2d', file=conf)
-    print('SFORMAT        = ' + sformat, file=conf)
+        print('SWCORR_SUBTYPE  {} nn_2d'.format(sep), file=conf)
+    print('SFORMAT        {} {}'.format(sep, sformat), file=conf)
     if sformat == 'fits':
-    	print('NCOL           = {}'.format(ncol), file=conf)
-    	print('COL_NAMES      = {}'.format(col_names), file=conf)
-    print('SCOORD_INPUT   = ' + str(scoord_input), file=conf)
-    print('SCOORD_OUTPUT  = ' + str(scoord_output), file=conf)
-    print('THMIN          = ' + str(thmin), file=conf)
-    print('THMAX          = ' + str(thmax), file=conf)
-    print('NTH            = ' + str(nth), file=conf)
-    print('BINTYPE        = ' + bintype, file=conf)
-    print('RADEC          = ' + str(radec), file=conf)
-    print('OATH           = ' + str(oath), file=conf)
-    print('SERROR         = ' + str(serror), file=conf)
-    print('NRESAMPLE      = ' + nresample, file=conf)
+    	print('NCOL           {} {}'.format(sep, ncol), file=conf)
+    	print('COL_NAMES      {} {}'.format(sep, col_names), file=conf)
+    print('SCOORD_INPUT   {} {}'.format(sep, str(scoord_input)), file=conf)
+    print('SCOORD_OUTPUT  {} {}'.format(sep, str(scoord_output)), file=conf)
+    print('THMIN          {} {}'.format(sep, str(thmin)), file=conf)
+    print('THMAX          {} {}'.format(sep, str(thmax)), file=conf)
+    print('NTH            {} {}'.format(sep, str(nth)), file=conf)
+    print('BINTYPE        {} {}'.format(sep, bintype), file=conf)
+    print('RADEC          {} {}'.format(sep, str(radec)), file=conf)
+    print('OATH           {} {}'.format(sep, str(oath)), file=conf)
+    print('SERROR         {} {}'.format(sep, str(serror)), file=conf)
+    print('NRESAMPLE      {} {}'.format(sep, nresample), file=conf)
 
     conf.close()
 

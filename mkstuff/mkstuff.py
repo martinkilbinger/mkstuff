@@ -157,6 +157,66 @@ def get_data_col(data, col_name, action='exit', format='fits'):
     return data[col_name]
 
 
+def read_fits(fr, record, verbose=False):
+    """Read (fits) record and return data and header information.
+
+    Parameters
+    ----------
+    fr: FITS hdu record
+        hdu
+    record: int
+        hdu number
+    verbose: bool, optional, default=False
+
+    Returns
+    -------
+    dat: FITS_rec
+        data
+    header: FITS header
+        header
+    names: list of strings
+        column names
+    """
+
+    if verbose is True:
+        print('read_fits: Using HDU number (record) ' + str(record))
+
+    if verbose is True:
+        print('Reading \'columns.names\'')
+    names = fr.columns.names
+
+    if verbose is True:
+        print('Reading \'data\'')
+    data = fr.data
+
+    if verbose is True:
+        print('Reading \'header\'')
+    header = fr.header
+
+    return data, header, names
+
+
+def write_fits(data, header, outpath, verbose=False):
+    """Write record o FITS file.
+
+    Parameters
+    ----------
+    data: FITS data record
+        data
+    outpath: string
+        output path
+    verbose: bool, optional, default=False
+    """
+
+    from astropy.io import fits
+
+    if verbose:
+        print('Writing FITS file \'{}\'...'.format(outpath))
+
+    hdu = fits.PrimaryHDU(data, header)
+    hdul = fits.HDUList([hdu])
+    hdul.writeto(outpath)
+
 
 def mkdir_p(path, verbose=False):
     """Create diretorcy by calling os.makedirs. Emulate shell function 'mkdir -p':
