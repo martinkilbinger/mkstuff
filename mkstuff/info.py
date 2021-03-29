@@ -10,7 +10,7 @@ Set the package information for `mkstuff'
 """
 
 # Release version
-version_info = (1, 2, 0)
+version_info = (1, 2, 2)
 __version__ = '.'.join(str(c) for c in version_info)
 
 # Package details
