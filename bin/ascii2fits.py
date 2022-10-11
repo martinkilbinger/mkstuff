@@ -14,28 +14,14 @@
 
 """
 
-# Compability with python2.x for x>6
-from __future__ import print_function
-
-
 import sys
+import random
+
 from optparse import OptionParser
 
 from astropy.io import ascii
 from astropy.table import Table, Column
-import random
-
-import mkstuff
-
-try:
-    import pyfits as fits
-except ImportError:
-    pass
-    try:
-        from astropy.io import fits
-    except ImportError:
-        error("Could not import pyfits or astropy.io/fits library")
-
+from astropy.io import fits
 
 import mkstuff
 
@@ -122,7 +108,7 @@ def write_fits_file(data, in_header, out_header, name, verbose=False):
     hdu     = fits.BinTableHDU.from_columns(coldefs)
     if verbose:
         print('Writing FITS file \'{}\''.format(name))
-    hdu.writeto(name, clobber=True)
+    hdu.writeto(name, overwrite=True)
 
 
 
